@@ -11,17 +11,17 @@ $router->get('/', function () use ($router) {
 */
 $router->group(['prefix' => 'drivers'], function () use ($router){
     //GET routes
-    $router->get('/', 'DriversController@index');
-    $router->get('/{id}', 'DriversController@show');
+    $router->get('/', 'DriversController@index'); // index
+    $router->get('/{id}', 'DriversController@show'); // show
 
     //POST routes
-    $router->post('new', 'DriversController@store');
+    $router->post('new', 'DriversController@store'); // create
 
     //PUT routes
-    $router->put('edit/{id}', 'DriversController@update');
+    $router->put('edit/{id}', 'DriversController@update'); // edit
 
     //DELETE routes
-    $router->delete('delete/{id}', 'DriversController@destroy');
+    $router->delete('delete/{id}', 'DriversController@destroy'); // delete
 });
 
 
@@ -31,16 +31,16 @@ $router->group(['prefix' => 'drivers'], function () use ($router){
 */
 $router->group(['prefix' => 'travels'], function () use ($router){
     //GET routes
-    $router->get('/', 'TravelsController@index');
-    $router->get('/{id}', 'TravelsController@show');
+    $router->get('/', 'TravelsController@index'); // index
+    $router->get('/{id}', 'TravelsController@show'); // show
 
     //POST routes
-    $router->post('new', 'TravelsController@store');
+    $router->post('new', 'TravelsController@store'); // create
 
     //PUT routes
-    $router->put('edit/{id}', 'TravelsController@update');
+    $router->put('edit/{id}', 'TravelsController@update'); // edit
 
     //DELETE routes
-    $router->delete('delete/{id}', 'TravelsController@destroy');
+    $router->delete('delete/{id}', 'TravelsController@destroy'); // delete
 });
 

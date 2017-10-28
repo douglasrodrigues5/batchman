@@ -12,6 +12,7 @@ class TravelsController extends Controller
     public $rules = [
         'start_location' => 'required|max:255',
         'end_location' => 'required|max:255',
+        'price' => 'required|max:255',
         'driver_id' => 'required'
     ];
 

@@ -3,28 +3,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Travel extends Model{
+class Passenger extends Model{
     //The table we are current working on.
-    public $table = "travels";
-
+    public $table = "passengers";
+    
     //All fields are required for any HTTP requisition. 
     protected $fillable = [
-        'start_location', //string
-        'end_location', //string
-        'price', //string
-        'driver_id' //integer(driver_id foreign key)
+        'name', //string
+        'birthdate', //date(not datetime)
+        'cpf', //string
+        'sex', //string
+        'money_balance'
     ];
-
+    
     //Automatic fields.
     protected $guarded = [
         'id',
         'created_at',
         'updated_at'
     ]; 
-
-    public function passengers(){
-        return $this->hasMany(App\Passenger::class);
-    }
+    
 }
-
 ?>
