@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Driver;
-use Illuminate\Http\Request;
+use App\Driver; //Driver Model
+use Illuminate\Http\Request; //Requests class
 
 class DriversController extends Controller
 {
@@ -31,7 +31,7 @@ class DriversController extends Controller
     public function index(){
         $drivers = Driver::all();
 
-        return response()->json($drivers);
+        return response('Success', 200)->json($drivers);
     }
 
     /*
@@ -45,7 +45,7 @@ class DriversController extends Controller
         $driver = new Driver($request->all());
         $driver->save();
         
-        return response()->json($driver);
+        return response('Registered.', 200)->json($driver);
     }
  
     /*
@@ -58,7 +58,7 @@ class DriversController extends Controller
         $driver = Driver::findOrFail($id);
         $driver->update($request->all());
 
-        return response()->json($driver);
+        return response('Driver updated.', 200)->json($driver);
     }
 
     /*
