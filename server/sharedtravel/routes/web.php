@@ -15,7 +15,14 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/drivers/', 'DriversController@index');
-$router->post('/drivers/new', 'DriversController@store');
+//Driver routes
+$router->get('drivers', 'DriversController@index');
+$router->post('drivers/new', 'DriversController@store');
 $router->put('drivers/edit/{id}', 'DriversController@update');
-$router->delete('/drivers/delete/{id}', 'DriversController@destroy');
+$router->delete('drivers/delete/{id}', 'DriversController@destroy');
+
+//Travel routes
+$router->get('travels', 'TravelsController@index');
+$router->post('travels/new', 'TravelsController@store');
+$router->put('travels/edit/{id}', 'TravelsController@update');
+$router->delete('travels/delete/{id}', 'TravelsController@destroy');

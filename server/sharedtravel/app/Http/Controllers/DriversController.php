@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Driver; //Driver Model
+
 use Illuminate\Http\Request; //Requests class
 
 class DriversController extends Controller
@@ -31,7 +32,7 @@ class DriversController extends Controller
     public function index(){
         $drivers = Driver::all();
 
-        return response('Success', 200)->json($drivers);
+        return response()->json($drivers);
     }
 
     /*
