@@ -33,6 +33,17 @@ class TravelsController extends Controller
     }
 
     /*
+        Return a travel record by id
+
+        METHOD: GET
+        RETURNS: A json with a record.
+    */
+    public function show($id){
+        $travel = Travel::findOrFail($id);
+        return response()->json($travel);
+    }
+
+    /*
         Store a new travel
 
         METHOD: POST

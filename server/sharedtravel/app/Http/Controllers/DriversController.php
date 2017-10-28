@@ -36,6 +36,17 @@ class DriversController extends Controller
     }
 
     /*
+        Return a driver record by id
+
+        METHOD: GET
+        RETURNS: A json with a record.
+    */
+    public function show($id){
+        $driver = Driver::findOrFail($id);
+        return response()->json($driver);
+    }
+
+    /*
         Store a new driver 
 
         METHOD: POST
@@ -46,7 +57,7 @@ class DriversController extends Controller
         $driver = new Driver($request->all());
         $driver->save();
         
-        return response('Registered.', 200)->json($driver);
+        return response()->json($driver);
     }
  
     /*
@@ -59,7 +70,7 @@ class DriversController extends Controller
         $driver = Driver::findOrFail($id);
         $driver->update($request->all());
 
-        return response('Driver updated.', 200)->json($driver);
+        return response()->json($driver);
     }
 
     /*
