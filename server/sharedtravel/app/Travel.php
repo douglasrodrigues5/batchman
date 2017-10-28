@@ -26,5 +26,3 @@ class Travel extends Model{
         return $this->hasMany(App\Passenger::class);
     }
 }
-
-?>

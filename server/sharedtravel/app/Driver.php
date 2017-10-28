@@ -28,5 +28,3 @@ class Driver extends Model{
         return $this->hasMany(App\Travel::class);
     }
 }
-
-?>

@@ -63,3 +63,7 @@ $router->group(['prefix' => 'passengers'], function () use ($router){
     //DELETE routes
     $router->delete('delete/{id}', 'PassengersController@destroy'); // delete
 });
+
+
+//SEARCH ENGINE
+$router->get('search', 'SearchsController@search');
