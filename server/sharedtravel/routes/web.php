@@ -14,3 +14,8 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/drivers/', 'DriversController@index');
+$router->post('/drivers/new', 'DriversController@store');
+$router->put('drivers/edit/{id}', 'DriversController@update');
+$router->delete('/drivers/delete/{id}', 'DriversController@destroy');
