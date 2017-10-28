@@ -15,7 +15,7 @@ class DriversController extends Controller
         'cpf' => 'required|unique:drivers|max:11' , //CPF MUST BE UNIQUE
         'carmodel' => 'required|max:255',
         'status' => 'required',
-        'sex' => 'required'
+        'sex' => 'required|max:255'
     ];
 
     public function __construct()

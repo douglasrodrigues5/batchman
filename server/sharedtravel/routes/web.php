@@ -44,3 +44,22 @@ $router->group(['prefix' => 'travels'], function () use ($router){
     $router->delete('delete/{id}', 'TravelsController@destroy'); // delete
 });
 
+
+/*
+    Prefix: passengers
+    URL Example: http://localhost/passengers/delete/1     <- DELETE HTTP REQUEST
+*/
+$router->group(['prefix' => 'passengers'], function () use ($router){
+    //GET routes
+    $router->get('/', 'PassengersController@index'); // index
+    $router->get('/{id}', 'PassengersController@show'); // show
+
+    //POST routes
+    $router->post('new', 'PassengersController@store'); // create
+
+    //PUT routes
+    $router->put('edit/{id}', 'PassengersController@update'); // edit
+
+    //DELETE routes
+    $router->delete('delete/{id}', 'PassengersController@destroy'); // delete
+});

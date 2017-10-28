@@ -13,7 +13,7 @@ class Passenger extends Model{
         'birthdate', //date(not datetime)
         'cpf', //string
         'sex', //string
-        'money_balance'
+        'money_balance' //string 
     ];
     
     //Automatic fields.
