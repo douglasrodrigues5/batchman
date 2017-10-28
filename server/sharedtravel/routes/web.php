@@ -1,28 +1,46 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return response('SharedTravel API 100% Working. ', 200);
 });
 
-//Driver routes
-$router->get('drivers', 'DriversController@index');
-$router->post('drivers/new', 'DriversController@store');
-$router->put('drivers/edit/{id}', 'DriversController@update');
-$router->delete('drivers/delete/{id}', 'DriversController@destroy');
 
-//Travel routes
-$router->get('travels', 'TravelsController@index');
-$router->post('travels/new', 'TravelsController@store');
-$router->put('travels/edit/{id}', 'TravelsController@update');
-$router->delete('travels/delete/{id}', 'TravelsController@destroy');
+/*
+    Prefix: driver
+    URL Example: http://localhost/drivers/1      <- GET HTTP REQUEST
+*/
+$router->group(['prefix' => 'drivers'], function () use ($router){
+    //GET routes
+    $router->get('/', 'DriversController@index');
+    $router->get('/{id}', 'DriversController@show');
+
+    //POST routes
+    $router->post('new', 'DriversController@store');
+
+    //PUT routes
+    $router->put('edit/{id}', 'DriversController@update');
+
+    //DELETE routes
+    $router->delete('delete/{id}', 'DriversController@destroy');
+});
+
+
+/*
+    Prefix: travels
+    URL Example: http://localhost/travels/edit/1     <- GET HTTP REQUEST
+*/
+$router->group(['prefix' => 'travels'], function () use ($router){
+    //GET routes
+    $router->get('/', 'TravelsController@index');
+    $router->get('/{id}', 'TravelsController@show');
+
+    //POST routes
+    $router->post('new', 'TravelsController@store');
+
+    //PUT routes
+    $router->put('edit/{id}', 'TravelsController@update');
+
+    //DELETE routes
+    $router->delete('delete/{id}', 'TravelsController@destroy');
+});
+
