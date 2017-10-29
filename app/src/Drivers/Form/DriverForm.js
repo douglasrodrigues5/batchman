@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { disableDiv } from '../../Helpers/ux';
+import { setElementValue, enableDiv, disableDiv } from '../../Helpers/ux';
 import { createDriver } from '../../Helpers/requests';
-const axios = require('axios');
 
 
 class DriverForm extends Component{
@@ -37,8 +36,15 @@ class DriverForm extends Component{
           this.state.carmodel,
           this.state.status,
           this.state.sex, 
-          () => {
+          (data) => {
             disableDiv('form-driver');
+            enableDiv('form-travel');
+
+            //Saving data for posterior use.
+            localStorage['current_driver_id'] = data.id;
+            localStorage['current_driver_name'] = data.name;
+
+            setElementValue('travel-driver', localStorage['current_driver_name'] = data.name);
           }
         );
         event.preventDefault();
@@ -46,7 +52,9 @@ class DriverForm extends Component{
     
       render() {
         return (
-          <form id="form-driver" onSubmit={this.handleSubmit}>
+          <div className={((localStorage['current_driver_id'] != null) ? 'inactive' : 'active')}>
+            <h1> Register a new driver </h1>
+            <form id="form-driver" onSubmit={this.handleSubmit}>
             <label>
               Name:
               <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
@@ -73,6 +81,8 @@ class DriverForm extends Component{
             </select>
             <input type="submit" value="Submit" />
           </form>
+          </div>
+          
         );
       }
 }

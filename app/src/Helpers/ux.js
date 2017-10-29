@@ -1,6 +1,7 @@
 /*
     This module handles all UX functions.
 */
+const queryString = require('query-string');
 
 //Disable a div using a given id
 export function disableDiv(divID){
@@ -12,4 +13,18 @@ export function disableDiv(divID){
 export function enableDiv(divID){
     let element = document.getElementById(divID);
     element.className = 'active';
+}
+
+//Set an element value
+export function setElementValue(elementID, value){
+    let element = document.getElementById(elementID);
+    element.value = value;
+}
+
+//Get HTTP params from url. GET method
+export function getUrlParam(paramName){
+    const url = window.location.search;
+    const params = queryString.parse(url);
+    
+    return params[paramName];
 }

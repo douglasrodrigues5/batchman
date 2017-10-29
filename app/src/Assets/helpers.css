@@ -4,6 +4,6 @@
 }
 
 .active{
-    pointer-events: none;
+    pointer-events: all;
     opacity: 1;
 }
