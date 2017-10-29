@@ -1,0 +1,9 @@
+.inactive{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.active{
+    pointer-events: none;
+    opacity: 1;
+}
