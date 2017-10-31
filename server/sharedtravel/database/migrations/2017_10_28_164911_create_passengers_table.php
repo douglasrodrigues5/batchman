@@ -26,6 +26,9 @@ class CreatePassengersTable extends Migration
 
             $table->string('money_balance', 255);
 
+            $table->integer('travel_id')->unsigned();
+            $table->foreign('travel_id')->references('id')->on('travels')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

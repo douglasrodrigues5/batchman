@@ -13,7 +13,8 @@ class TravelsController extends Controller
         'start_location' => 'required|max:255',
         'end_location' => 'required|max:255',
         'price' => 'required|max:255',
-        'driver_id' => 'required'
+        'max_lotation' => 'required|max: 255',
+        'driver_id' => 'required|max:255'
     ];
 
     public function __construct()

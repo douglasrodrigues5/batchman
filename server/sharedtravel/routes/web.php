@@ -67,3 +67,6 @@ $router->group(['prefix' => 'passengers'], function () use ($router){
 
 //SEARCH ENGINE
 $router->get('search', 'SearchsController@search');
+
+//GET ESPECIFIC DRIVER
+$router->post('getdriver', 'DriversController@getDriver');

@@ -19,6 +19,7 @@ class CreateTravelsTable extends Migration
             $table->string('start_location', 255);
             $table->string('end_location', 255);
             $table->string('price', 255);
+            $table->string('max_lotation');
 
             $table->integer('driver_id')->unsigned();
             $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');

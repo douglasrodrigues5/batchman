@@ -14,7 +14,8 @@ class PassengersController extends Controller
         'birthdate' => 'required',
         'cpf' => 'required|unique:passengers|max:11' , //CPF MUST BE UNIQUE
         'sex' => 'required|max:15',
-        'money_balance' => 'required|max:255' //CAN BE 0, BUT STILL REQUIRED.
+        'money_balance' => 'required|max:255', //CAN BE 0, BUT STILL REQUIRED.
+        'travel_id' => 'required' 
     ];
 
     /*

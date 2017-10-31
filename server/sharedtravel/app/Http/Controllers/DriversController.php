@@ -23,6 +23,12 @@ class DriversController extends Controller
         //
     }
 
+    public function getDriver(Request $request){
+        $driver = Driver::where('cpf', '=', $request->input("cpf"))->get();
+        
+        return response()->json($driver);
+    }
+
     /*
         Return all drivers registered to db
 
