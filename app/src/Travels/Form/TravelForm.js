@@ -12,6 +12,7 @@ class TravelForm extends Component{
           end_location: '',
           price: 0,
           driver_id: 0,
+          max_lotation: 2, // 2 default
           redirect: false,
           travel_id: 0
         };
@@ -34,6 +35,7 @@ class TravelForm extends Component{
             this.state.start_location, 
             this.state.end_location,
             this.state.price,
+            this.state.max_lotation,
             localStorage['current_driver_id'],
             (data) => {
               this.setState({
@@ -57,9 +59,14 @@ class TravelForm extends Component{
           return <Redirect to={"/travel?id=" +this.state.travel_id}/>
         }
         return (
-          <div className={((localStorage['current_driver_id'] != null) ? 'active' : 'inactive')}>
-            <h2 id="travel-driver"> WRITING AS: {localStorage['current_driver_name']}</h2>
-            <form id="form-travel" onSubmit={this.handleSubmit}>
+          <div id="form-travel" className={((localStorage['current_driver_id'] != null) ? 'active' : 'inactive')}>
+            <h1 id="travel-driver"> CREATE A TRAVEL POST </h1>
+            <h3> Current driver:
+              <p id="current_driver">
+                {localStorage['current_driver_name']} 
+              </p> 
+            </h3>
+            <form  onSubmit={this.handleSubmit}>
               <label>
                 Start location:
                 <input type="text" name="start_location" value={this.state.start_location} onChange={this.handleChange} />
@@ -71,6 +78,10 @@ class TravelForm extends Component{
               <label>
                 Price:
                 <input type="text" name="price" value={this.state.price} onChange={this.handleChange} />
+              </label>
+              <label>
+                Max lotation:
+                <input type="text" name="max_lotation" value={this.state.max_lotation} onChange={this.handleChange} />
               </label>
               <input type="submit" value="Submit" />
             </form>

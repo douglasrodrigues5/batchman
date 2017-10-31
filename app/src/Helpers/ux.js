@@ -16,9 +16,9 @@ export function enableDiv(divID){
 }
 
 //Set an element value
-export function setElementValue(elementID, value){
+export function setElementText(elementID, value){
     let element = document.getElementById(elementID);
-    element.value = value;
+    element.innerText = value;
 }
 
 //Get HTTP params from url. GET method

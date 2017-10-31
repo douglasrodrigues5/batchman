@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { setElementText, enableDiv, disableDiv } from '../../Helpers/ux';
-import { createDriver } from '../../Helpers/requests';
+import { createPassenger } from '../../Helpers/requests';
 
-
-class DriverForm extends Component{
+class PassengerForm extends Component{
     constructor(props) {
         super(props);
         //All the required fields
@@ -11,9 +9,9 @@ class DriverForm extends Component{
           name: '',
           birthdate: '',
           cpf: '',
-          carmodel: '',
-          status: true,
-          sex: 'male'
+          sex: 'male',
+          money_balance: 0,
+          travel_id: this.props.travel_id
         };
 
         
@@ -29,33 +27,23 @@ class DriverForm extends Component{
       
       handleSubmit(event) {
 
-        //create a driver record THEN disable form-driver
-        createDriver(
+        //create a passenger record
+        createPassenger(
           this.state.name, 
           this.state.birthdate,
           this.state.cpf,
-          this.state.carmodel,
-          this.state.status,
-          this.state.sex, 
-          (data) => {
-            //Saving data for posterior use.
-            localStorage['current_driver_id'] = data.id;
-            localStorage['current_driver_name'] = data.name;
-
-            disableDiv('form-driver');
-            enableDiv('form-travel');
-            setElementText("current_driver", data.name);
-
-          }
+          this.state.sex,
+          this.state.money_balance,
+          this.state.travel_id
         );
         event.preventDefault();
       }
     
       render() {
         return (
-          <div id="form-driver" className={((localStorage['current_driver_id'] != null) ? 'inactive' : 'active')}>
-            <h1> Register a new driver </h1>
-            <form onSubmit={this.handleSubmit}>
+          <div>
+            <h1> Register a passenger for this travel </h1>
+            <form id="form-passenger" onSubmit={this.handleSubmit}>
             <label>
               Name:
               <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
@@ -68,18 +56,15 @@ class DriverForm extends Component{
               Cpf:
               <input type="text" name="cpf" value={this.state.cpf} onChange={this.handleChange} />
             </label>
-            <label>
-              Car model:
-              <input type="text" name="carmodel" value={this.state.carmodel} onChange={this.handleChange} />
-            </label>
-            <select name="status" onChange={this.handleChange} value={this.state.status}>
-              <option value={true}>Active driver</option>
-              <option value={false}>Inactive driver</option>
-            </select> 
             <select name="sex" onChange={this.handleChange} value={this.state.sex}>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
+            <label>
+              How much you can pay?:
+              <input type="text" name="money_balance" value={this.state.money_balance} onChange={this.handleChange} />
+            </label>
+            
             <input type="submit" value="Submit" />
           </form>
           </div>
@@ -88,4 +73,4 @@ class DriverForm extends Component{
       }
 }
 
-export default DriverForm;
+export default PassengerForm;
