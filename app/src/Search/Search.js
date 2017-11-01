@@ -26,7 +26,10 @@ class Search extends Component{
         return(
             <div id="search">
                 { this.state && this.state.travels &&
+                <div>
                     <TravelsList listSrc={this.state.travels} />
+                    <a href="#" onClick={() => window.location.reload()}> NEW SEARCH </a>
+                </div>
                  }
             </div>
             

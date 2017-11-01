@@ -46,6 +46,7 @@ class Passenger extends Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
+                
                 {this.state && this.state.ready &&
                     <Search 
                         start_location={this.state.start_location}

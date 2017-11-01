@@ -1,6 +1,7 @@
 const axios = require('axios');
 //Axios is the perfect lib for making HTTP requests 
-
+ 
+const apiUrl = "http://192.168.10.10"
 
 //Create a driver record through the API.
 export function createDriver(
@@ -11,7 +12,7 @@ export function createDriver(
     status,
     sex,
     callback){
-    axios.post('http://192.168.10.10/drivers/new', {
+    axios.post(apiUrl+"/drivers/new", {
         name: name,
         birthdate: birthdate,
         cpf: cpf,
@@ -28,7 +29,7 @@ export function createDriver(
 
 //Get a driver record
 export function getDriver(id, callback){
-    axios.get("http://192.168.10.10/drivers/" + id).then(function (res) {
+    axios.get(apiUrl+"/drivers/" + id).then(function (res) {
         callback(res.data);
     })
     .catch( function (error) {
@@ -37,7 +38,7 @@ export function getDriver(id, callback){
 }
 
 export function loginDriver(cpf, callback){
-    axios.post("http://192.168.10.10/getdriver", {
+    axios.post(apiUrl+"getdriver", {
         cpf: cpf
     }).then(function (res){
         callback(res.data);
@@ -56,7 +57,7 @@ export function editDriver(
     status, 
     sex, 
     callback){
-        axios.put("http://192.168.10.10/drivers/edit/"+id, {
+        axios.put(apiUrl+"/drivers/edit/"+id, {
             name: name,
             birthdate: birthdate,
             cpf: cpf,
@@ -79,7 +80,7 @@ export function createTravel(
     max_lotation,
     driver_id,
     callback){
-    axios.post('http://192.168.10.10/travels/new', {
+    axios.post(apiUrl+"/travels/new", {
         start_location: start_location, 
         end_location: end_location,
         price: price,
@@ -95,7 +96,7 @@ export function createTravel(
 
 //get a travel
 export function getTravel(id, callback){
-    axios.get("http://192.168.10.10/travels/" + id).then(function (res) {
+    axios.get(apiUrl+"/travels/" + id).then(function (res) {
         callback(res.data);
     })
     .catch( function (error) {
@@ -114,7 +115,7 @@ export function createPassenger(
     money_balance,
     travel_id,
     callback){
-        axios.post('http://192.168.10.10/passengers/new', {
+        axios.post(apiUrl+"/passengers/new", {
             name: name,
             birthdate: birthdate,
             cpf: cpf,
@@ -130,7 +131,7 @@ export function createPassenger(
 }
 
 export function getTravelPassengers(travel_id, callback){
-    axios.get("http://192.168.10.10/getpassengers/" + travel_id).then(function (res){
+    axios.get(apiUrl+"/getpassengers/" + travel_id).then(function (res){
         callback(res.data);
     }).catch(function (error){
         console.log(error);
@@ -145,7 +146,7 @@ export function getTravelPassengers(travel_id, callback){
 
 //travel search by price, start_location and end_location
 export function travelSearch(start_location, end_location, price, callback){
-    axios.get('http://192.168.10.10/search?price='+price+'&start_location='+start_location+'&end_location='+ end_location)
+    axios.get(apiUrl+"/search?price="+price+"&start_location="+start_location+"&end_location="+ end_location)
          .then(function (res){
             callback(res.data);
          }).catch(function (error){
