@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { editDriver } from '../../Helpers/requests';
+import { Redirect } from 'react-router-dom';
 
 class EditForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            status: localStorage['current_driver_status']
+            status: localStorage['current_driver_status'],
+            redirect: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +37,10 @@ class EditForm extends Component{
         event.preventDefault();
     }
     render(){
+        const { redirect } = this.state;
+        if(redirect){
+          return <Redirect to={"/drivers"}/>
+        }
         return(
             <div>
             <form onSubmit={this.handleSubmit}>
