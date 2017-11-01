@@ -38,15 +38,15 @@ As I was thinking of micro services, I created an application in [ReactJS](https
 **It works as follows:**
 ------------------------
 
-> ***A driver registers himself***
-> ***The driver can create a travel at the time of registration, or leave and return later***
-> ***There is a login screen by cpf***
-***After creating a travel, the travel will be available for the search mechanism***
-***In the passengers section, the passenger can search for travel from the Start Location address, End Location and the Price for the travel.***
-***The available travels are displayed and provide an access link for passenger registration.***
-***A passenger can pay more or even than the price of the travel. But never less than that.***
-***A driver can edit his active or inactive status whenever he want in the edit section.***
-
+ 1. > ***A driver registers himself***
+ 2. > ***The driver can create a travel at the time of registration, or leave and return later***
+ 3. > ***There is a login screen by cpf***
+ 4. > ***After creating a travel, the travel will be available for the search mechanism***
+ 5. > ***In the passengers section, the passenger can search for travel from the Start Location address, End Location and the Price for the
+    travel.***
+ 6. > ***The available travels are displayed and provide an access link for passenger registration.***
+ 7. > ***A passenger can pay more or even than the price of the travel. But never less than that.***
+ 8. > ***A driver can edit his active or inactive status whenever he want in the edit section.***
 
 Why?
 --
