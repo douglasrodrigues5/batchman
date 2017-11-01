@@ -14,7 +14,6 @@ class PassengerForm extends Component{
           travel_id: this.props.travel_id
         };
 
-        
         //Change and submit events
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,20 +27,30 @@ class PassengerForm extends Component{
       handleSubmit(event) {
 
         //create a passenger record
-        createPassenger(
-          this.state.name, 
-          this.state.birthdate,
-          this.state.cpf,
-          this.state.sex,
-          this.state.money_balance,
-          this.state.travel_id
-        );
+        if(this.state.money_balance >= this.props.price){
+          createPassenger(
+            this.state.name, 
+            this.state.birthdate,
+            this.state.cpf,
+            this.state.sex,
+            this.state.money_balance,
+            this.state.travel_id,
+            (data) => {
+              window.location.reload()
+            }
+          );
+        } else{
+          alert("You don't have enough money for this travel.");
+        }
+        
+        
         event.preventDefault();
       }
     
       render() {
+        let passengersNum = Object.keys(this.props.passengers).length;
         return (
-          <div>
+          <div className={(passengersNum >= this.props.travel_lotation) ? 'inactive':'activ'}>
             <h1> Register a passenger for this travel </h1>
             <form id="form-passenger" onSubmit={this.handleSubmit}>
             <label>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { disableDiv } from '../../Helpers/ux';
 import { createTravel } from '../../Helpers/requests';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+
 
 class TravelForm extends Component{
     constructor(props) {
@@ -59,33 +59,31 @@ class TravelForm extends Component{
           return <Redirect to={"/travel?id=" +this.state.travel_id}/>
         }
         return (
-          <div id="form-travel" className={((localStorage['current_driver_id'] != null) ? 'active' : 'inactive')}>
+          <div>
             <h1 id="travel-driver"> CREATE A TRAVEL POST </h1>
-            <h3> Current driver:
-              <p id="current_driver">
-                {localStorage['current_driver_name']} 
-              </p> 
-            </h3>
-            <form  onSubmit={this.handleSubmit}>
-              <label>
-                Start location:
-                <input type="text" name="start_location" value={this.state.start_location} onChange={this.handleChange} />
-              </label>
-              <label>
-                End location:
-                <input type="text" name="end_location" value={this.state.end_location} onChange={this.handleChange} />
-              </label>
-              <label>
-                Price:
-                <input type="text" name="price" value={this.state.price} onChange={this.handleChange} />
-              </label>
-              <label>
-                Max lotation:
-                <input type="text" name="max_lotation" value={this.state.max_lotation} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
+            
+            <div id="form-travel" className={((localStorage['current_driver_status'] !== "false") ? 'active' : 'inactive')}>
+              <form  onSubmit={this.handleSubmit}>
+                <label>
+                  Start location:
+                  <input type="text" name="start_location" value={this.state.start_location} onChange={this.handleChange} />
+                </label>
+                <label>
+                  End location:
+                  <input type="text" name="end_location" value={this.state.end_location} onChange={this.handleChange} />
+                </label>
+                <label>
+                  Price:
+                  <input type="text" name="price" value={this.state.price} onChange={this.handleChange} />
+                </label>
+                <label>
+                  Max lotation:
+                  <input type="text" name="max_lotation" value={this.state.max_lotation} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
+            </div>
         );
       }
 }

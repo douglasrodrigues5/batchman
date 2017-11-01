@@ -3,19 +3,21 @@ import DriverForm from './Form/DriverForm';
 import DriverLoginForm from './Form/DriverLoginForm';
 import TravelForm from '../Travels/Form/TravelForm';
 import { enableDiv, disableDiv } from '../Helpers/ux';
+import DriverCard from './DriverCard';
 
 class Driver extends Component {
     render(){
         return(
-            <div className="Driver">
+            <div className="driver">
                 <h1> Hello, Driver. </h1>
                 <DriverForm /> 
                 <br />
-                Or
-                <br />
+                <h1>Or</h1>
                 <DriverLoginForm />
-                <a className="new-driver" onClick={() => {enableDiv('form-driver'); disableDiv('form-travel')}}> New driver </a>
                 <br />
+                <DriverCard />
+                <br />
+                <a className="new-driver" onClick={() => {enableDiv('form-driver'); disableDiv('form-travel')}}> New driver </a>
                 <br />
                 <TravelForm />
             </div>

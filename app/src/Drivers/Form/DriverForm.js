@@ -41,6 +41,11 @@ class DriverForm extends Component{
             //Saving data for posterior use.
             localStorage['current_driver_id'] = data.id;
             localStorage['current_driver_name'] = data.name;
+            localStorage['current_driver_birthdate'] = data.birthdate
+            localStorage['current_driver_cpf'] = data.cpf
+            localStorage['current_driver_carmodel'] = data.carmodel
+            localStorage['current_driver_status'] = data.status
+            localStorage['current_driver_sex'] = data.sex
 
             disableDiv('form-driver');
             enableDiv('form-travel');
