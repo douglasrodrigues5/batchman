@@ -70,3 +70,6 @@ $router->get('search', 'SearchsController@search');
 
 //GET ESPECIFIC DRIVER
 $router->post('getdriver', 'DriversController@getDriver');
+
+//GET TRAVEL PASSENGERS
+$router->get('getpassengers/{id}', 'PassengersController@getTravelPassengers');

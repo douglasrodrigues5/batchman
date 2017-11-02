@@ -12,6 +12,7 @@ class Travel extends Model{
         'start_location', //string
         'end_location', //string
         'price', //string
+        'max_lotation', //string
         'driver_id' //integer(driver_id foreign key)
     ];
 

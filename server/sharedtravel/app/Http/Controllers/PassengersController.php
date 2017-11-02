@@ -80,6 +80,14 @@ class PassengersController extends Controller
 
         return response('Deleted. ', 200);
     }
+
+    /*
+        Get a list of passengers in the given travel
+    */
+    public function getTravelPassengers($travel_id){
+        $passengers = Passenger::where('travel_id', '=', $travel_id)->get();
+        return response()->json($passengers);
+    }
 }
 
 ?>
