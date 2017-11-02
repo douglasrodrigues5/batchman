@@ -62,7 +62,7 @@ class TravelForm extends Component{
           <div>
             <h1 id="travel-driver"> CREATE A TRAVEL POST </h1>
             
-            <div id="form-travel" className={((localStorage['current_driver_status'] !== "false") ? 'active' : 'inactive')}>
+            <div id="form-travel" className={(localStorage['current_driver_status'] !== "false" && localStorage['current_driver_status'] !== undefined  ? 'active' : 'inactive')}>
               <form  onSubmit={this.handleSubmit}>
                 <label>
                   Start location:

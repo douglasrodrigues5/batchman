@@ -13,7 +13,8 @@ class DriverForm extends Component{
           cpf: '',
           carmodel: '',
           status: true,
-          sex: 'male'
+          sex: 'male',
+          current_driver_id: localStorage['current_driver_id'] !== undefined ? 'inactive' : 'active'
         };
 
         
@@ -46,11 +47,10 @@ class DriverForm extends Component{
             localStorage['current_driver_carmodel'] = data.carmodel
             localStorage['current_driver_status'] = data.status
             localStorage['current_driver_sex'] = data.sex
-
-            disableDiv('form-driver');
             enableDiv('form-travel');
+            disableDiv('form-driver');
             setElementText("current_driver", data.name);
-
+            setElementText("driver_status", "Status: "+(localStorage['current_driver_status'] !== "false" ? "active":"inactive" ) );
           }
         );
         event.preventDefault();
@@ -58,7 +58,7 @@ class DriverForm extends Component{
     
       render() {
         return (
-          <div id="form-driver" className={((localStorage['current_driver_id'] != null) ? 'inactive' : 'active')}>
+          <div id="form-driver" className={this.state.current_driver_id}>
             <h1> Register a new driver </h1>
             <form onSubmit={this.handleSubmit}>
             <label>

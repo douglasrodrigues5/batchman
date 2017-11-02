@@ -38,7 +38,7 @@ export function getDriver(id, callback){
 }
 
 export function loginDriver(cpf, callback){
-    axios.post(apiUrl+"getdriver", {
+    axios.post(apiUrl+"/getdriver/", {
         cpf: cpf
     }).then(function (res){
         callback(res.data);

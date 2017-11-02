@@ -10,7 +10,7 @@ class DriverCard extends Component{
                     {localStorage['current_driver_name']} 
                 </p>
                 <p id="driver_status">
-                    Status: {(localStorage['current_driver_status'] !== "false" ? "active":"inactive" )}
+                    Status: {(localStorage['current_driver_status'] !== "false" && localStorage['current_driver_status'] !== undefined ? "active":"inactive" )}
                 </p> 
                 <a href="/drivers/edit/">
                     EDIT DRIVER STATUS
