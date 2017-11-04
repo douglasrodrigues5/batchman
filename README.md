@@ -1,7 +1,7 @@
-Use case:
+WEB TEST(#1) Use case:
 ========
 
- > Nosso cliente precisa de uma aplicação web que registre Corridas
+> Nosso cliente precisa de uma aplicação web que registre Corridas
 > Compartilhadas oferecidas pela sua empresa em todo o Brasil. Neste
 > sistema será possível cadastrar motoristas com Nome, Data de
 > Nascimento, CPF, Modelo do carro, Status e Sexo, todos os campos são
@@ -17,7 +17,7 @@ Use case:
 > bloquear o registro de corridas para motoristas Inativos.
 
 
-Technical requirements:
+WEB TEST(#1) Technical requirements:
 =====
 
 > **1.** Todas as consultas devem ser apresentadas em tabelas.
@@ -52,3 +52,22 @@ Why?
 --
 
 Well, i wanted to create a driver-focused application. Because passengers come and go, but drivers are the same for many years.
+
+
+BACK END TEST(#2) Use case:
+>A ideia é basicamente a seguinte:
+>- Vamos criar uma tabela na base de dados chamada tb_customer_account.
+>id_customer – Identificação unica do cliente.
+>cpf_cnpj – CPF ou CNPJ do Cliente
+>nm_customer – Nome do Cliente
+>is_active – Indica se o cliente está ativo ou não
+>vl_total – Mostra quando que o cliente possui de saldo.
+>- Na sua aplicação, insira ‘N’ registros na tabela tb_customer_account
+>- Após a inserção, percorra os objetos e calcule a média do campo vl_total apenas para os itens que este valor
+>seja maior que 560 e o campo id_customer esteja entre 1500 e 2700.
+>- Exiba a média final
+>- Imprima cada um dos clientes utilizados para o cálculo da média, ordenando do maior para o menor saldo.
+
+BACK END TEST(#2) Technical requirements:
+1. Criar um sistema batch, em Java ou Python.
+2. Persistir os dados em uma base de dados SQL Server ou similar.
