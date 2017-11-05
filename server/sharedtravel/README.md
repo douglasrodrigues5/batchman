@@ -13,5 +13,20 @@ Dependencies:
  - Mbstring PHP Extension
  - Tokenizer PHP Extension
  - XML PHP Extension
- - MYSQL >= 5
+ - POSTGRESQL 
+
+------- 
+
+Installing homestead:
+---------------------
+You'll need install [**Vagrant**](https://www.vagrantup.com/), then run the following commands:
+    
+    vagrant box add laravel/homestead
+    cd ~
+	git clone https://github.com/laravel/homestead.git Homestead
+	cd Homestead
+	git checkout v6.5.0
+	bash init.sh
+
+**Settings and more installation options [*here*](https://laravel.com/docs/5.5/homestead).**
 
