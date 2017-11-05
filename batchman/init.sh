@@ -1,3 +1,3 @@
 xdg-open src/batchman.cfg
-sudo python ./setup.py install
+python ./setup.py install --user
 batchman
