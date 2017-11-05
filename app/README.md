@@ -7,3 +7,7 @@ After cloning this repo, just run:
 
     npm i
     npm start
+
+
+LOCAL ONLY:
+If you wnat to see routes, see this package: [Lumen Routes List](https://packagist.org/packages/appzcoder/lumen-routes-list)
