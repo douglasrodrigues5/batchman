@@ -1,7 +1,7 @@
 Batchman
 ========
 
-The batch processing micro service for data storage.
+The batch processing service for (limited)data storage.
 
 Install instructions:
 ---------------------
